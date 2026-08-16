@@ -1,0 +1,1409 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --pink: #ff5da2;
+  --hot-pink: #ff2f92;
+  --light-pink: #ffd6e8;
+  --cream: #fff8f0;
+  --text: #39242e;
+}
+
+body {
+  min-height: 100vh;
+
+  color: var(--text);
+
+  font-family: "DM Mono", monospace;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      #ffd3e5,
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 20%,
+      #e7d4ff,
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #fff5f8,
+      #fbeaff,
+      #fff9f1
+    );
+
+  overflow-x: hidden;
+}
+
+
+/* =====================================
+   FLOATING DECORATIONS
+===================================== */
+
+.floating {
+  position: fixed;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  color: var(--pink);
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  opacity: .55;
+
+  animation:
+    floatAround 5s ease-in-out infinite;
+}
+
+.floating-1 {
+  top: 18%;
+  left: 5%;
+  font-size: 35px;
+}
+
+.floating-2 {
+  top: 35%;
+  right: 7%;
+  font-size: 28px;
+  animation-delay: 1s;
+}
+
+.floating-3 {
+  bottom: 18%;
+  left: 7%;
+  font-size: 27px;
+  animation-delay: 2s;
+}
+
+.floating-4 {
+  top: 70%;
+  right: 10%;
+  font-size: 40px;
+  animation-delay: .5s;
+}
+
+.floating-5 {
+  top: 10%;
+  right: 25%;
+  font-size: 25px;
+  animation-delay: 1.5s;
+}
+
+.floating-6 {
+  bottom: 8%;
+  right: 30%;
+  font-size: 30px;
+  animation-delay: 2.5s;
+}
+
+@keyframes floatAround {
+
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(-5deg);
+  }
+
+  50% {
+    transform:
+      translateY(-15px)
+      rotate(7deg);
+  }
+
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+header {
+
+  position: relative;
+
+  z-index: 5;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 30px 6vw;
+
+}
+
+.brand-name {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 34px;
+
+  font-weight: 700;
+
+  color: #472b37;
+
+  letter-spacing: -1px;
+
+}
+
+.brand-sub {
+
+  margin-top: 3px;
+
+  color: #a47d8c;
+
+  font-size: 10px;
+
+  letter-spacing: .5px;
+
+}
+
+.online {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 9px 14px;
+
+  border-radius: 30px;
+
+  background:
+    rgba(255,255,255,.55);
+
+  border:
+    1px solid
+    rgba(255,255,255,.9);
+
+  box-shadow:
+    0 8px 30px
+    rgba(178,103,140,.08);
+
+  font-size: 9px;
+
+  color: #8c6876;
+
+}
+
+.online-dot {
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #46d98c;
+
+  box-shadow:
+    0 0 8px #46d98c;
+
+}
+
+
+/* =====================================
+   MAIN
+===================================== */
+
+main {
+
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  justify-content: center;
+
+  padding:
+    10px 20px 60px;
+
+}
+
+.booth {
+
+  width: min(
+    850px,
+    100%
+  );
+
+}
+
+
+/* =====================================
+   CAMERA
+===================================== */
+
+.camera-wrapper {
+
+  padding: 9px;
+
+  border-radius: 35px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.9),
+      rgba(255,255,255,.35)
+    );
+
+  box-shadow:
+    0 25px 70px
+    rgba(165,83,125,.15);
+
+}
+
+.camera {
+
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+
+  border-radius: 27px;
+
+  background: #1b1016;
+
+}
+
+video {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transform:
+    scaleX(-1);
+
+  transition:
+    filter .35s ease,
+    transform .3s ease;
+
+}
+
+
+/* CAMERA OVERLAY */
+
+.camera-gradient {
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.12),
+      transparent 35%,
+      rgba(40,0,20,.2)
+    );
+
+}
+
+
+/* FILM GRAIN */
+
+.grain {
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: .08;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+
+}
+
+
+/* =====================================
+   CAMERA LABELS
+===================================== */
+
+.live,
+.current-filter {
+
+  position: absolute;
+
+  top: 17px;
+
+  z-index: 5;
+
+  padding: 8px 12px;
+
+  border-radius: 20px;
+
+  color: white;
+
+  background:
+    rgba(35,10,22,.32);
+
+  backdrop-filter:
+    blur(12px);
+
+  border:
+    1px solid
+    rgba(255,255,255,.2);
+
+  font-size: 8px;
+
+  letter-spacing: 1px;
+
+}
+
+.live {
+  left: 17px;
+}
+
+.live span {
+  color: #ff75ae;
+}
+
+.current-filter {
+  right: 17px;
+}
+
+
+/* =====================================
+   CORNERS
+===================================== */
+
+.camera-corner {
+
+  position: absolute;
+
+  width: 25px;
+  height: 25px;
+
+  z-index: 5;
+
+  border-color:
+    rgba(255,255,255,.65);
+
+}
+
+.corner-tl {
+
+  top: 38px;
+  left: 38px;
+
+  border-top: 2px solid;
+  border-left: 2px solid;
+
+}
+
+.corner-tr {
+
+  top: 38px;
+  right: 38px;
+
+  border-top: 2px solid;
+  border-right: 2px solid;
+
+}
+
+.corner-bl {
+
+  bottom: 38px;
+  left: 38px;
+
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+
+}
+
+.corner-br {
+
+  bottom: 38px;
+  right: 38px;
+
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+
+}
+
+
+/* =====================================
+   COUNTDOWN
+===================================== */
+
+.countdown {
+
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 20;
+
+  pointer-events: none;
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 120px;
+
+  color: white;
+
+  text-shadow:
+    0 4px 30px
+    rgba(255,45,145,.7);
+
+  opacity: 0;
+
+}
+
+
+/* =====================================
+   FLASH
+===================================== */
+
+.flash {
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 30;
+
+  background: white;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+}
+
+.flash.active {
+
+  animation:
+    cameraFlash .35s ease;
+
+}
+
+@keyframes cameraFlash {
+
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: .95;
+  }
+
+  100% {
+    opacity: 0;
+  }
+
+}
+
+
+/* =====================================
+   FILTER SECTION
+===================================== */
+
+.section-title {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  margin:
+    22px 5px 10px;
+
+  color: #a47d8c;
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.5px;
+
+}
+
+
+/* =====================================
+   FILTERS
+===================================== */
+
+.filters {
+
+  display: flex;
+
+  gap: 9px;
+
+  overflow-x: auto;
+
+  padding:
+    3px 2px 12px;
+
+}
+
+.filters::-webkit-scrollbar {
+
+  height: 4px;
+
+}
+
+.filters::-webkit-scrollbar-thumb {
+
+  background: #ff9fc4;
+
+  border-radius: 10px;
+
+}
+
+.filter {
+
+  flex:
+    0 0 86px;
+
+  height: 72px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.8);
+
+  border-radius: 19px;
+
+  background:
+    rgba(255,255,255,.55);
+
+  color: #a57e8d;
+
+  cursor: pointer;
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 7px;
+
+  letter-spacing: .5px;
+
+  transition:
+    transform .2s,
+    box-shadow .2s,
+    background .2s;
+
+}
+
+.filter span {
+
+  display: block;
+
+  font-size: 21px;
+
+  margin-bottom: 5px;
+
+}
+
+.filter:hover {
+
+  transform:
+    translateY(-4px)
+    rotate(-1deg);
+
+  box-shadow:
+    0 10px 20px
+    rgba(255,93,162,.12);
+
+}
+
+.filter.active {
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff72b0,
+      #ff4f9d
+    );
+
+  border-color:
+    #ff72b0;
+
+  box-shadow:
+    0 10px 25px
+    rgba(255,79,157,.25);
+
+}
+
+
+/* =====================================
+   CONTROLS
+===================================== */
+
+.controls {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  margin-top: 16px;
+
+}
+
+.control {
+
+  width: 52px;
+  height: 52px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(255,255,255,.8);
+
+  background:
+    rgba(255,255,255,.6);
+
+  color: #9b687d;
+
+  font-size: 22px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px
+    rgba(166,82,124,.08);
+
+  transition: .2s;
+
+}
+
+.control:hover {
+
+  transform:
+    translateY(-3px);
+
+  background:
+    white;
+
+}
+
+
+/* SHUTTER */
+
+.shutter {
+
+  width: 82px;
+  height: 82px;
+
+  padding: 5px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff4f9d,
+      #ff9ac5,
+      #c878ff
+    );
+
+  box-shadow:
+    0 12px 35px
+    rgba(255,71,156,.3);
+
+  transition:
+    transform .2s;
+
+}
+
+.shutter:hover {
+
+  transform:
+    scale(1.08);
+
+}
+
+.shutter:active {
+
+  transform:
+    scale(.95);
+
+}
+
+.shutter-inner {
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+
+  background:
+    #fffafa;
+
+  border:
+    3px solid
+    rgba(255,125,177,.3);
+
+}
+
+
+/* HINT */
+
+.hint {
+
+  text-align: center;
+
+  margin-top: 11px;
+
+  color: #b08a98;
+
+  font-size: 9px;
+
+  letter-spacing: .7px;
+
+}
+
+
+/* =====================================
+   MODAL
+===================================== */
+
+.modal {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 100;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+
+  background:
+    rgba(55,20,39,.55);
+
+  backdrop-filter:
+    blur(18px);
+
+  overflow-y: auto;
+
+}
+
+.modal.hidden {
+
+  display: none;
+
+}
+
+
+/* =====================================
+   EDITOR
+===================================== */
+
+.polaroid-editor {
+
+  width:
+    min(450px, 100%);
+
+  max-height: 95vh;
+
+  overflow-y: auto;
+
+  padding: 22px;
+
+  border-radius: 28px;
+
+  background:
+    #fff8fb;
+
+  box-shadow:
+    0 30px 100px
+    rgba(78,24,50,.3);
+
+}
+
+.editor-top {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  margin-bottom: 17px;
+
+}
+
+.editor-title {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 23px;
+
+  color: #472b37;
+
+}
+
+.editor-sub {
+
+  margin-top: 3px;
+
+  color: #a88391;
+
+  font-size: 8px;
+
+}
+
+.close {
+
+  border: none;
+
+  background: none;
+
+  color: #a36e82;
+
+  font-size: 28px;
+
+  cursor: pointer;
+
+}
+
+
+/* =====================================
+   POLAROID
+===================================== */
+
+.polaroid {
+
+  width: 100%;
+
+  padding:
+    15px 15px 20px;
+
+  background:
+    #fffdf9;
+
+  box-shadow:
+    0 18px 35px
+    rgba(73,31,48,.18);
+
+  transform:
+    rotate(-1.2deg);
+
+  transition:
+    .3s;
+
+}
+
+.polaroid-photo {
+
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  background: #eee;
+
+}
+
+.polaroid-photo img {
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+}
+
+
+/* POLAROID COLORS */
+
+.polaroid.pink {
+
+  background: #ffd8e8;
+
+}
+
+.polaroid.lavender {
+
+  background: #e7dcff;
+
+}
+
+.polaroid.blue {
+
+  background: #d9efff;
+
+}
+
+.polaroid.cream {
+
+  background: #fff0c9;
+
+}
+
+
+/* =====================================
+   STICKERS
+===================================== */
+
+.sticker-layer {
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+}
+
+.photo-sticker {
+
+  position: absolute;
+
+  font-size: 34px;
+
+  filter:
+    drop-shadow(
+      0 3px 3px
+      rgba(0,0,0,.15)
+    );
+
+  animation:
+    stickerPop .25s ease;
+
+}
+
+@keyframes stickerPop {
+
+  from {
+
+    transform:
+      scale(0)
+      rotate(-20deg);
+
+  }
+
+  to {
+
+    transform:
+      scale(1)
+      rotate(0);
+
+  }
+
+}
+
+
+/* =====================================
+   POLAROID BOTTOM
+===================================== */
+
+.polaroid-bottom {
+
+  padding:
+    14px 5px 0;
+
+}
+
+.date {
+
+  color: #9d7887;
+
+  font-size: 7px;
+
+  letter-spacing: 1px;
+
+}
+
+.caption-preview {
+
+  margin-top: 7px;
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 19px;
+
+  color: #54313e;
+
+}
+
+
+/* =====================================
+   EDITOR
+===================================== */
+
+.editor-section {
+
+  margin-top: 19px;
+
+}
+
+.editor-section label {
+
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #a17b8a;
+
+  font-size: 8px;
+
+  letter-spacing: 1px;
+
+}
+
+.editor-section input {
+
+  width: 100%;
+
+  padding: 12px 14px;
+
+  border:
+    1px solid
+    #efd5e0;
+
+  border-radius: 14px;
+
+  outline: none;
+
+  background: white;
+
+  color: #583542;
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 10px;
+
+}
+
+.editor-section input:focus {
+
+  border-color:
+    #ff78ad;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(255,120,173,.1);
+
+}
+
+
+/* =====================================
+   COLORS
+===================================== */
+
+.color-options {
+
+  display: flex;
+
+  gap: 9px;
+
+}
+
+.color {
+
+  width: 31px;
+  height: 31px;
+
+  border-radius: 50%;
+
+  border:
+    2px solid
+    white;
+
+  cursor: pointer;
+
+  background:
+    #fffdf9;
+
+  box-shadow:
+    0 2px 8px
+    rgba(0,0,0,.1);
+
+}
+
+.color.active {
+
+  outline:
+    2px solid
+    #ff67a8;
+
+  outline-offset: 2px;
+
+}
+
+.pink-color {
+
+  background: #ffd8e8;
+
+}
+
+.lavender-color {
+
+  background: #e7dcff;
+
+}
+
+.blue-color {
+
+  background: #d9efff;
+
+}
+
+.cream-color {
+
+  background: #fff0c9;
+
+}
+
+
+/* =====================================
+   STICKER BUTTONS
+===================================== */
+
+.stickers {
+
+  display: flex;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+
+}
+
+.sticker {
+
+  width: 43px;
+  height: 43px;
+
+  border:
+    1px solid
+    #f0d8e2;
+
+  border-radius: 13px;
+
+  background:
+    white;
+
+  font-size: 21px;
+
+  cursor: pointer;
+
+  transition: .2s;
+
+}
+
+.sticker:hover {
+
+  transform:
+    translateY(-3px)
+    rotate(4deg);
+
+  background:
+    #fff0f6;
+
+}
+
+
+/* =====================================
+   SAVE BUTTON
+===================================== */
+
+.save-button {
+
+  width: 100%;
+
+  margin-top: 22px;
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 16px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff4f9d,
+      #c76cff
+    );
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 25px
+    rgba(255,79,157,.22);
+
+  transition: .2s;
+
+}
+
+.save-button:hover {
+
+  transform:
+    translateY(-2px);
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 600px) {
+
+  header {
+
+    padding:
+      22px 18px;
+
+  }
+
+  .brand-name {
+
+    font-size: 27px;
+
+  }
+
+  .brand-sub {
+
+    font-size: 8px;
+
+  }
+
+  .online {
+
+    font-size: 7px;
+
+    padding:
+      7px 10px;
+
+  }
+
+  main {
+
+    padding:
+      5px 12px 40px;
+
+  }
+
+  .camera-wrapper {
+
+    padding: 5px;
+
+    border-radius: 25px;
+
+  }
+
+  .camera {
+
+    border-radius: 21px;
+
+  }
+
+  .camera-corner {
+
+    width: 19px;
+    height: 19px;
+
+  }
+
+  .corner-tl {
+
+    top: 25px;
+    left: 25px;
+
+  }
+
+  .corner-tr {
+
+    top: 25px;
+    right: 25px;
+
+  }
+
+  .corner-bl {
+
+    bottom: 25px;
+    left: 25px;
+
+  }
+
+  .corner-br {
+
+    bottom: 25px;
+    right: 25px;
+
+  }
+
+  .polaroid-editor {
+
+    padding: 16px;
+
+  }
+
+}
