@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -8,222 +10,632 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>pixel.exe 📸</title>
+  <title>pixel.exe ♡</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
 </head>
+
 
 <body>
 
-  <!-- BACKGROUND GLOW -->
-  <div class="pink-glow"></div>
-  <div class="blue-glow"></div>
+  <!-- FLOATING DECORATIONS -->
+
+  <div class="floating floating-1">♡</div>
+  <div class="floating floating-2">✦</div>
+  <div class="floating floating-3">🎀</div>
+  <div class="floating floating-4">♡</div>
+  <div class="floating floating-5">✧</div>
+  <div class="floating floating-6">🦋</div>
+
 
   <!-- HEADER -->
+
   <header>
-    <div class="logo">
-      pixel.exe
-      <span>BETA</span>
+
+    <div class="brand">
+
+      <div class="brand-name">
+        pixel.exe
+      </div>
+
+      <div class="brand-sub">
+        your tiny digital photo booth ♡
+      </div>
+
     </div>
 
-    <div class="status">
-      <div class="status-dot"></div>
+
+    <div class="online">
+
+      <span class="online-dot"></span>
+
       CAM ONLINE
+
     </div>
+
   </header>
 
 
   <!-- MAIN -->
+
   <main>
 
-    <!-- CAMERA CARD -->
-    <section class="camera-card">
 
-      <div class="camera">
+    <!-- CAMERA -->
 
-        <!-- WEBCAM -->
-        <video
-          id="video"
-          autoplay
-          playsinline
-          muted
-        ></video>
+    <section class="booth">
 
-        <!-- DARK OVERLAY -->
-        <div class="camera-overlay"></div>
 
-        <!-- TOP LABELS -->
-        <div class="live-label">
-          ● LIVE / 01
+      <div class="camera-wrapper">
+
+        <div class="camera">
+
+
+          <!-- VIDEO -->
+
+          <video
+            id="video"
+            autoplay
+            playsinline
+            muted
+          ></video>
+
+
+          <!-- CAMERA GRADIENT -->
+
+          <div class="camera-gradient"></div>
+
+
+          <!-- FILM GRAIN -->
+
+          <div class="grain"></div>
+
+
+          <!-- LIVE -->
+
+          <div class="live">
+
+            <span>●</span>
+
+            LIVE / 01
+
+          </div>
+
+
+          <!-- FILTER NAME -->
+
+          <div
+            class="current-filter"
+            id="currentFilter"
+          >
+            ✨ CLEAN GIRL
+          </div>
+
+
+          <!-- CAMERA CORNERS -->
+
+          <div class="camera-corner corner-tl"></div>
+
+          <div class="camera-corner corner-tr"></div>
+
+          <div class="camera-corner corner-bl"></div>
+
+          <div class="camera-corner corner-br"></div>
+
+
+          <!-- COUNTDOWN -->
+
+          <div
+            id="countdown"
+            class="countdown"
+          ></div>
+
+
+          <!-- FLASH -->
+
+          <div
+            id="flash"
+            class="flash"
+          ></div>
+
+
         </div>
 
-        <div
-          class="filter-label"
-          id="filterLabel"
-        >
-          NORMAL
-        </div>
+      </div>
 
-        <!-- CAMERA CORNERS -->
-        <div class="corner top-left"></div>
-        <div class="corner top-right"></div>
-        <div class="corner bottom-left"></div>
-        <div class="corner bottom-right"></div>
 
-        <!-- FLASH -->
-        <div
-          id="flash"
-          class="flash"
-        ></div>
+      <!-- FILTER TITLE -->
+
+      <div class="section-title">
+
+        <span>choose your vibe</span>
+
+        <span>♡</span>
 
       </div>
 
 
       <!-- FILTERS -->
+
       <div class="filters">
+
 
         <button
           class="filter active"
           data-filter="normal"
-          data-name="NORMAL"
+          data-name="✨ CLEAN GIRL"
         >
+
           <span>✨</span>
-          NORMAL
+
+          CLEAN GIRL
+
         </button>
+
+
+        <button
+          class="filter"
+          data-filter="pink"
+          data-name="🌸 PINK HAZE"
+        >
+
+          <span>🌸</span>
+
+          PINK HAZE
+
+        </button>
+
+
+        <button
+          class="filter"
+          data-filter="strawberry"
+          data-name="🍓 STRAWBERRY"
+        >
+
+          <span>🍓</span>
+
+          STRAWBERRY
+
+        </button>
+
+
+        <button
+          class="filter"
+          data-filter="bubblegum"
+          data-name="🫧 BUBBLEGUM"
+        >
+
+          <span>🫧</span>
+
+          BUBBLEGUM
+
+        </button>
+
 
         <button
           class="filter"
           data-filter="y2k"
-          data-name="Y2K"
+          data-name="💿 Y2K BABY"
         >
+
           <span>💿</span>
-          Y2K
+
+          Y2K BABY
+
         </button>
+
 
         <button
           class="filter"
-          data-filter="dreamy"
-          data-name="DREAMY"
+          data-filter="fairy"
+          data-name="🦋 FAIRY DUST"
         >
-          <span>🌸</span>
-          DREAMY
+
+          <span>🦋</span>
+
+          FAIRY DUST
+
         </button>
 
-        <button
-          class="filter"
-          data-filter="noir"
-          data-name="NOIR"
-        >
-          <span>🖤</span>
-          NOIR
-        </button>
 
         <button
           class="filter"
           data-filter="vhs"
-          data-name="VHS"
+          data-name="📼 SLEEPOVER"
         >
+
           <span>📼</span>
-          VHS
+
+          SLEEPOVER
+
         </button>
+
 
         <button
           class="filter"
           data-filter="warm"
-          data-name="WARM"
+          data-name="☀️ GOLDEN HOUR"
         >
-          <span>🔥</span>
-          WARM
+
+          <span>☀️</span>
+
+          GOLDEN HOUR
+
         </button>
+
 
         <button
           class="filter"
-          data-filter="cyber"
-          data-name="CYBER"
+          data-filter="cozy"
+          data-name="🧸 COZY FILM"
         >
-          <span>💜</span>
-          CYBER
+
+          <span>🧸</span>
+
+          COZY FILM
+
         </button>
+
+
+        <button
+          class="filter"
+          data-filter="cherry"
+          data-name="💋 CHERRY BOMB"
+        >
+
+          <span>💋</span>
+
+          CHERRY BOMB
+
+        </button>
+
+
+        <button
+          class="filter"
+          data-filter="ice"
+          data-name="🧊 ICE PRINCESS"
+        >
+
+          <span>🧊</span>
+
+          ICE PRINCESS
+
+        </button>
+
+
+        <button
+          class="filter"
+          data-filter="noir"
+          data-name="🖤 MIDNIGHT"
+        >
+
+          <span>🖤</span>
+
+          MIDNIGHT
+
+        </button>
+
 
       </div>
 
 
       <!-- CONTROLS -->
+
       <div class="controls">
 
+
         <button
-          class="small-button"
+          class="control"
           id="restart"
           title="Restart camera"
         >
           ↻
         </button>
 
+
         <button
-          class="small-button"
+          class="control"
           id="mirror"
           title="Mirror camera"
         >
           ⇋
         </button>
 
+
         <button
-          class="capture"
+          class="shutter"
           id="capture"
           title="Take photo"
         >
-          <div></div>
+
+          <div class="shutter-inner"></div>
+
         </button>
 
+
         <button
-          class="small-button"
-          id="download"
-          title="Download photo"
+          class="control"
+          id="quickDownload"
+          title="Download last photo"
         >
           ↓
         </button>
 
+
       </div>
 
-      <p class="tagline">
-        click. pose. serve. ✦
-      </p>
+
+      <div class="hint">
+        press the pink button & make a memory ♡
+      </div>
+
 
     </section>
 
-
-    <!-- PHOTO RESULT -->
-    <section
-      id="result"
-      class="result hidden"
-    >
-
-      <div class="result-header">
-        <span>YOUR DROP ✦</span>
-
-        <button id="closeResult">
-          ×
-        </button>
-      </div>
-
-      <img
-        id="photo"
-        alt="Captured photo"
-      >
-
-      <button
-        id="downloadBig"
-        class="download-big"
-      >
-        DOWNLOAD PIC ↓
-      </button>
-
-    </section>
 
   </main>
+
+
+  <!-- POLAROID MODAL -->
+
+  <div
+    class="modal hidden"
+    id="modal"
+  >
+
+
+    <div class="polaroid-editor">
+
+
+      <!-- TOP -->
+
+      <div class="editor-top">
+
+        <div>
+
+          <div class="editor-title">
+            YOUR POLAROID ✦
+          </div>
+
+          <div class="editor-sub">
+            make it cute before you save it
+          </div>
+
+        </div>
+
+
+        <button
+          id="closeModal"
+          class="close"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <!-- POLAROID -->
+
+      <div
+        class="polaroid"
+        id="polaroid"
+      >
+
+        <div class="polaroid-photo">
+
+          <img
+            id="capturedPhoto"
+            alt="Your captured photo"
+          >
+
+
+          <div
+            class="sticker-layer"
+            id="stickerLayer"
+          ></div>
+
+        </div>
+
+
+        <div class="polaroid-bottom">
+
+          <div
+            id="dateText"
+            class="date"
+          ></div>
+
+
+          <div
+            id="captionPreview"
+            class="caption-preview"
+          >
+            pretty girl era ♡
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- CAPTION -->
+
+      <div class="editor-section">
+
+        <label>
+          ADD YOUR CAPTION ♡
+        </label>
+
+        <input
+          id="caption"
+          maxlength="32"
+          placeholder="pretty girl era ♡"
+          value="pretty girl era ♡"
+        >
+
+      </div>
+
+
+      <!-- POLAROID COLORS -->
+
+      <div class="editor-section">
+
+        <label>
+          POLAROID COLOR
+        </label>
+
+
+        <div class="color-options">
+
+          <button
+            class="color active"
+            data-color="classic"
+          ></button>
+
+          <button
+            class="color pink-color"
+            data-color="pink"
+          ></button>
+
+          <button
+            class="color lavender-color"
+            data-color="lavender"
+          ></button>
+
+          <button
+            class="color blue-color"
+            data-color="blue"
+          ></button>
+
+          <button
+            class="color cream-color"
+            data-color="cream"
+          ></button>
+
+        </div>
+
+      </div>
+
+
+      <!-- STICKERS -->
+
+      <div class="editor-section">
+
+        <label>
+          ADD A LITTLE SOMETHING 🎀
+        </label>
+
+
+        <div class="stickers">
+
+          <button
+            class="sticker"
+            data-sticker="🎀"
+          >
+            🎀
+          </button>
+
+          <button
+            class="sticker"
+            data-sticker="🦋"
+          >
+            🦋
+          </button>
+
+          <button
+            class="sticker"
+            data-sticker="♡"
+          >
+            ♡
+          </button>
+
+          <button
+            class="sticker"
+            data-sticker="✦"
+          >
+            ✦
+          </button>
+
+          <button
+            class="sticker"
+            data-sticker="🌸"
+          >
+            🌸
+          </button>
+
+          <button
+            class="sticker"
+            data-sticker="💋"
+          >
+            💋
+          </button>
+
+          <button
+            class="sticker"
+            data-sticker="🫧"
+          >
+            🫧
+          </button>
+
+          <button
+            class="sticker"
+            data-sticker="☆"
+          >
+            ☆
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- DOWNLOAD -->
+
+      <button
+        id="downloadPolaroid"
+        class="save-button"
+      >
+
+        SAVE MY POLAROID ♡
+
+      </button>
+
+
+    </div>
+
+
+  </div>
+
+
+  <!-- HIDDEN CANVAS -->
+
+  <canvas
+    id="canvas"
+    style="display:none"
+  ></canvas>
 
 
   <script src="script.js"></script>
 
 </body>
+
 </html>
