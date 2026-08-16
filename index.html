@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>pixel.exe 📸</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- BACKGROUND GLOW -->
+  <div class="pink-glow"></div>
+  <div class="blue-glow"></div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      pixel.exe
+      <span>BETA</span>
+    </div>
+
+    <div class="status">
+      <div class="status-dot"></div>
+      CAM ONLINE
+    </div>
+  </header>
+
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- CAMERA CARD -->
+    <section class="camera-card">
+
+      <div class="camera">
+
+        <!-- WEBCAM -->
+        <video
+          id="video"
+          autoplay
+          playsinline
+          muted
+        ></video>
+
+        <!-- DARK OVERLAY -->
+        <div class="camera-overlay"></div>
+
+        <!-- TOP LABELS -->
+        <div class="live-label">
+          ● LIVE / 01
+        </div>
+
+        <div
+          class="filter-label"
+          id="filterLabel"
+        >
+          NORMAL
+        </div>
+
+        <!-- CAMERA CORNERS -->
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+        <div class="corner bottom-right"></div>
+
+        <!-- FLASH -->
+        <div
+          id="flash"
+          class="flash"
+        ></div>
+
+      </div>
+
+
+      <!-- FILTERS -->
+      <div class="filters">
+
+        <button
+          class="filter active"
+          data-filter="normal"
+          data-name="NORMAL"
+        >
+          <span>✨</span>
+          NORMAL
+        </button>
+
+        <button
+          class="filter"
+          data-filter="y2k"
+          data-name="Y2K"
+        >
+          <span>💿</span>
+          Y2K
+        </button>
+
+        <button
+          class="filter"
+          data-filter="dreamy"
+          data-name="DREAMY"
+        >
+          <span>🌸</span>
+          DREAMY
+        </button>
+
+        <button
+          class="filter"
+          data-filter="noir"
+          data-name="NOIR"
+        >
+          <span>🖤</span>
+          NOIR
+        </button>
+
+        <button
+          class="filter"
+          data-filter="vhs"
+          data-name="VHS"
+        >
+          <span>📼</span>
+          VHS
+        </button>
+
+        <button
+          class="filter"
+          data-filter="warm"
+          data-name="WARM"
+        >
+          <span>🔥</span>
+          WARM
+        </button>
+
+        <button
+          class="filter"
+          data-filter="cyber"
+          data-name="CYBER"
+        >
+          <span>💜</span>
+          CYBER
+        </button>
+
+      </div>
+
+
+      <!-- CONTROLS -->
+      <div class="controls">
+
+        <button
+          class="small-button"
+          id="restart"
+          title="Restart camera"
+        >
+          ↻
+        </button>
+
+        <button
+          class="small-button"
+          id="mirror"
+          title="Mirror camera"
+        >
+          ⇋
+        </button>
+
+        <button
+          class="capture"
+          id="capture"
+          title="Take photo"
+        >
+          <div></div>
+        </button>
+
+        <button
+          class="small-button"
+          id="download"
+          title="Download photo"
+        >
+          ↓
+        </button>
+
+      </div>
+
+      <p class="tagline">
+        click. pose. serve. ✦
+      </p>
+
+    </section>
+
+
+    <!-- PHOTO RESULT -->
+    <section
+      id="result"
+      class="result hidden"
+    >
+
+      <div class="result-header">
+        <span>YOUR DROP ✦</span>
+
+        <button id="closeResult">
+          ×
+        </button>
+      </div>
+
+      <img
+        id="photo"
+        alt="Captured photo"
+      >
+
+      <button
+        id="downloadBig"
+        class="download-big"
+      >
+        DOWNLOAD PIC ↓
+      </button>
+
+    </section>
+
+  </main>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
